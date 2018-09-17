@@ -1,0 +1,21 @@
+{% extends 'todo_list.html' %}
+{% block body %}
+
+<table class="table table-hover">
+	{% for curtask in tasks %}
+	<tr>
+		
+			<td><a class="href" href="#">{{curtask.task}}</a></td>
+			<td>{{curtask.created}}</td>
+			<td>{{curtask.dueto}}</td>
+			<td>{{curtask.owner}}</td>
+			{% if curtask.mark == True %}
+			<td><a class="btn btn-info" href="">Done</a></td>
+			{% else %}
+			<td><a class="btn btn-info" href="">Not done</a></td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</table>
+<button type="button" class="btn btn-warning">View completed tasks</button>
+{% endblock %}
