@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<table class="table table-hover equal-width-cols">
+	
+	{% for curtask in tasks %}
+
+	<tr>
+	
+			<td class = "centered">{{curtask.title}}</td>
+			<td class = "centered">{{curtask.created}}</td>
+			<td class = "centered">{{curtask.due_to}}</td>
+			<td class = "centered">{{curtask.owner}}</td>
+			{% if curtask.mark == True %}
+			<td class = "centered"><a class="btn btn-info" href="">Done</a></td>
+			{% else %}
+			<td class = "centered"><a class="btn btn-info" href="">Not done</a></td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+</table>
+<button type="button" class="btn btn-warning">View incompleted tasks</button>
+{% endblock %}

@@ -1,0 +1,21 @@
+
+.jumbotron{
+	background-color: black;
+	margin-bottom: 20px;
+	color:red;
+	padding:7px;
+	padding-left: 12px;
+
+}
+body{
+
+}
+
+.equal-width-cols {
+  width: 100%;
+  table-layout: fixed;
+}
+.equal-width-cols td {
+  width: 100%;
+  text-align:center;
+}
