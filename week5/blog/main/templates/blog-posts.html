@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% for curpost in posts %}
+<div class="post">
+		 
+		<div class="date">{{curpost.created}}</div>
+		<h2>{{curpost.title}}</h2>
+
+		<p>
+			{{curpost.content}}
+		</p>
+		<p>{{curpost.comments}}	<span class="author">{{curpost.author}}</span></p>
+	
+		<hr>
+</div>
+{% endfor %}
+{% endblock %}

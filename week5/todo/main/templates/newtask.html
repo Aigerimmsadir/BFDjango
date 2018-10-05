@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block body %}
+ <h2>Person Form</h2>
+ <p>Enter date in format "YYYY-MM-DD hh:mm"</p>
+   <form action="{% url 'add_task' %}" method="post">
+      {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+      <input type="submit" class="btn btn-default" value="Submit">
+  </form>
+<!-- 
+    <h1>Add task</h1>
+
+    <form action="{% url 'add_task' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" name="title" class="form-control" id="id_title">
+        </div>
+        <div class="form-group">
+            <label for="created">Created:</label>
+           
+            <input id="id_created" class="form-control" type="datetime-local">
+        </div>
+       <div class="form-group">
+            <label for="due_to">Due to:</label>
+           
+            <input id="id_due_to" class="form-control" type="datetime-local">
+        </div>
+
+           <div class="form-group">
+               <label for="owner">Owner:</label>
+               <input type="text" name="owner" class="form-control" id="id_owner">
+           </div>
+           <div class="form-group">
+               <label for="mark">Mark:</label>
+               <input type="checkbox" name="mark" class="form-control" id="id_mark">
+           </div>
+        <input type="submit" class="btn btn-default" value="Submit">
+    </form> -->
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		TODO list
+	</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap1.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/mycustom.css' %}">
+</head>
+<body>
+<div class="jumbotron">
+	<h4>BFDjango TODO </h4> 
+</div>
+<div class="container">
+
+{% block body %}
+{% endblock %}
+
+
+</div>
+</body>
+
+</html>
