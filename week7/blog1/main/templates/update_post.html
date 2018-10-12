@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<a href="{% url 'index' %}" class="btn btn-primary"> Back to blog</a>
+         <form action="{% url 'update_post' post.id %}" method="post">
+      {% csrf_token %}      
+        <!-- {{ form}}  -->
+		    <div class="form-group">
+		        <label for="title" ">Title:</label>
+		        <input type="text" name="title"  class="form-control" value="{{post.title}}">
+		    </div>
+		    <div class="form-group">
+		        <label for="content">Content:</label>
+		        <textarea name="content" cols="40" rows="10" class="form-control" >{{post.content}}</textarea>
+		    </div>
+    
+    		<input type="submit" class="btn btn-default" value="Submit">
+
+		</form>
+      
+{% endblock %}
