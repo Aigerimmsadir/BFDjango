@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block body %}
+		<a href="{% url 'add_task' %}" class="btn btn-primary">Add task</a>
+	<hr><h1>Tasks in list 1</h1>
+	<table class="table table-hover equal-width-cols">
+
+    <tr>
+      <th scope="col" class>Tasks</th>
+      <th scope="col">Created</th>
+      <th scope="col">Due on</th>
+      <th scope="col">Owner</th>
+       <th scope="col">Mark</th>
+       <th scope="col">Delete</th>
+       <th scope="col">Update</th>
+    </tr>
+</table>
+<table class="table table-hover equal-width-cols">
+	
+	{% for curtask in tasks %}
+
+	<tr>
+	
+			<td class = "centered">{{curtask.title}}</td>
+			<td class = "centered">{{curtask.created}}</td>
+			<td class = "centered">{{curtask.due_to}}</td>
+			<td class = "centered">{{curtask.owner}}</td>
+			
+			{% if curtask.mark == True %}
+			<td class = "centered"><a class="btn btn-info" href="">Done</a></td>
+			{% else %}
+			<td class = "centered"><a href="{% url 'task_done' curtask.id %}" class="btn btn-info">Not done</a></td>
+			{% endif %}
+			<td class = "centered"><a href="{% url 'delete_task' curtask.id %}" class="btn btn-danger">Delete this task</a></td>
+			<td class = "centered"><a href="{% url 'update_task' curtask.id %}" class="btn btn-success">Update this task</a></td>
+		</tr>
+		{% endfor %}
+</table>
+	<a href="{% url 'index' %}" class="btn btn-warning">View all tasks</a>
+ 	<a href="{% url 'incompleted' %}" class="btn btn-warning">View incompleted tasks</a>
+
+	<a href="{% url 'completed' %}" class="btn btn-warning">View completed tasks</a>
+
+	<a href="{% url 'creation' %}" class="btn btn-warning">Order tasks by creation date</a>
+	 <a href="{% url 'due_order' %}" class="btn btn-warning">Order tasks by due date</a>
+	 <a href="{% url 'delete_list' %}" class="btn btn-danger">Delete this list</a>
+{% endblock %}

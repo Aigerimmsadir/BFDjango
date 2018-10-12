@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adding task</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap1.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/mycustom.css' %}">
+</head>
+<body>
+
+    <h1>New author</h1>
+
+    <form action="{% url 'author_new' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" name="title" class="form-control" id="id_title">
+        </div>
+         <div class="form-group">
+         	 <label for="created">Created:</label>
+             <div class='input-group date' id='datetimepicker1'>
+                 <input type='text' class="form-control" />
+                 <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                 </span>
+             </div>
+          </div>
+         <div class="form-group">
+         	 <label for="due_to">Created:</label>
+             <div class='input-group date' id='datetimepicker1'>
+                 <input type='text' class="form-control" />
+                 <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                 </span>
+             </div>
+          </div>
+
+           <div class="form-group">
+               <label for="owner">Owner:</label>
+               <input type="text" name="owner" class="form-control" id="id_owner">
+           </div>
+           <div class="form-group">
+               <label for="mark">Mark:</label>
+               <input type="checkbox" name="mark" class="form-control" id="id_mark">
+           </div>
+        <input type="submit" class="btn btn-default" value="Submit">
+    </form>
+
+
+</body>
+</html>
