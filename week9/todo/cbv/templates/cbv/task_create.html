@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+ <h2>Person Form</h2>
+ <p>Enter date in format "YYYY-MM-DD hh:mm"</p>
+    <form action="{% url 'task_create' %}" method="post">
+      {% csrf_token %}      
+        <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" name="title" class="form-control">
+    </div> 
+    <div class="form-group">
+        <label for="due_to">Due_to:</label>
+        <input id="datetime" type="text" name="due_to" class="form-control">
+    </div>  
+ <div class="form-group">
+               <label for="mark">Mark:</label>
+               <input type="checkbox" name="mark" class="form-control" id="id_mark">
+           </div>
+<input type="submit" class="btn btn-success" value="Submit">
+</form>
+ 
+
+{% endblock %}
