@@ -1,0 +1,26 @@
+
+.jumbotron{
+	background-color: black;
+	margin-bottom: 20px;
+	color:white;
+	padding:7px;
+	padding-left: 12px;
+	
+
+}
+.users{
+	padding-left: 80%;
+}
+
+body{
+
+}
+
+.equal-width-cols {
+  width: 100%;
+  table-layout: fixed;
+}
+.equal-width-cols td {
+  width: 100%;
+  text-align:center;
+}
