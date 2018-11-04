@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="post">
+		 
+		<div class="date">{{post.created}}</div>
+		<h2>{{post.title}}</h2>
+
+		<p>
+			{{post.content}}
+		</p>
+			{% if user.is_authenticated %}
+	<div class="userfunctions">
+		<a href="{% url 'update_post' post.id %}" class="btn btn-success"> Update this post</a>
+		<a href="{% url 'delete_post' post.id %}" class="btn btn-danger"> Delete this post</a>
+	</div>
+			{% endif %}
+		<hr>
+</div>
+<div class="list-group">
+
+	{% for comment in comments %}
+		  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+		    <div class="d-flex w-100 justify-content-between">
+		      <h5 class="mb-1">{{comment.author}}</h5>
+		      <small>{{comment.created}}</small>
+		    </div>
+		    <p class="mb-1">{{comment.content}}</p>
+		    <small>Donec id elit non mi porta.</small>
+		  </a>
+  {% endfor %}
+</div>
+		{% if user.is_authenticated %}
+<b>{{user.username}}</b>
+		{% else %}
+		<b>Guest</b>
+		{% endif %}
+         <form action="{% url 'add_comment' post.id %}" method="post">
+      {% csrf_token %}      
+		    <div class="form-group">
+		        <label for="content">Content:</label>
+		        <textarea name="content" cols="40" rows="10" class="form-control" ></textarea>
+		    </div>
+    
+    		<input type="submit" class="btn btn-success" value="Submit">
+
+		</form>
+      
+{% endblock %}

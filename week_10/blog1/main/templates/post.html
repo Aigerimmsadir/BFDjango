@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="post">
+		 
+		<div class="date">{{curpost.created}}</div>
+		<h2>{{curpost.title}}</h2>
+
+		<p>
+			{{curpost.content}}
+		</p>
+	<div class="userfunctions">
+		<a href="{% url 'add_comment' curpost.id %}" class="btn btn-primary"> Add comment to this post</a>
+	 {% if user.is_authenticated %}
+		
+
+		<a href="{% url 'update_post' curpost.id %}" class="btn btn-success"> Update this post</a>
+		<a href="{% url 'delete_post' curpost.id %}" class="btn btn-danger"> Delete this post</a>
+		{% else %} 
+			You cannot update this post
+		{% endif %}
+	</div>
+		<hr>
+</div>
+<div class="list-group">
+
+	{% for comment in comments %}
+		  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+		    <div class="d-flex w-100 justify-content-between">
+		      <h5 class="mb-1">{{comment.author}}</h5>
+		      <small>{{comment.created}}</small>
+		    </div>
+		    <p class="mb-1">{{comment.content}}</p>
+		  </a>
+  {% endfor %}
+</div>
+{% endblock %}

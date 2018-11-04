@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% if user.is_authenticated %}
+<a href="{% url 'add_post' %}" class="btn btn-primary"> <span class="glyphicon glyphicon-plus"></span> Add Post</a>
+{% else %}
+<p>Please log in to add new posts</p>
+{% endif %}
+{% for curpost in posts %}
+<div class="post">
+		 
+		<div class="date">{{curpost.created}}</div>
+		<a href="{% url 'read_post' curpost.id %}"><h2>{{curpost.title}}</h2></a>
+
+		<p>
+			{{curpost.content}}
+		</p>
+		<p>	<span class="userfunctions">{{curpost.author}}</span></p>
+	
+		<hr>
+</div>
+{% endfor %}
+{% endblock %}
